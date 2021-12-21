@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenWebRX WebSDR receiver
+
+[Service]
+Type=simple
+ExecStart=/root/openwebrx/openwebrx.py
+Restart=always
+Environment="LD_LIBRARY_PATH=/usr/local/lib:"
+Environment="PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+
+[Install]
+WantedBy=multi-user.target

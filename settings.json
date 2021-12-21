@@ -1,0 +1,66 @@
+{
+    "version": 7,
+    "sdrs": {
+        "sdrplay": {
+            "name": "SDRPlay RSP2",
+            "type": "sdrplay",
+            "antenna": "Antenna A",
+            "profiles": {
+                "20m": {
+                    "name": "20m",
+                    "center_freq": 14150000,
+                    "rf_gain": 0,
+                    "samp_rate": 500000,
+                    "start_freq": 14070000,
+                    "start_mod": "usb"
+                },
+                "30m": {
+                    "name": "30m",
+                    "center_freq": 10125000,
+                    "rf_gain": 0,
+                    "samp_rate": 250000,
+                    "start_freq": 10142000,
+                    "start_mod": "usb"
+                },
+                "40m": {
+                    "name": "40m",
+                    "center_freq": 7100000,
+                    "rf_gain": 0,
+                    "samp_rate": 500000,
+                    "start_freq": 7070000,
+                    "start_mod": "lsb"
+                },
+                "80m": {
+                    "name": "80m",
+                    "center_freq": 3650000,
+                    "rf_gain": 0,
+                    "samp_rate": 500000,
+                    "start_freq": 3570000,
+                    "start_mod": "lsb"
+                },
+                "49m": {
+                    "name": "49m Broadcast",
+                    "center_freq": 6000000,
+                    "rf_gain": 0,
+                    "samp_rate": 500000,
+                    "start_freq": 6070000,
+                    "start_mod": "am"
+                },
+                "a608c84d-ee42-42c1-8788-ee1e0b29f6d3": {
+                    "name": "2m",
+                    "center_freq": 145000000,
+                    "samp_rate": 10000000,
+                    "start_freq": 146,
+                    "start_mod": "nfm"
+                },
+                "0e4ac057-3490-4f68-b08b-1ecbe4cc5617": {
+                    "name": "70cm",
+                    "center_freq": 446000000,
+                    "samp_rate": 8000000,
+                    "start_freq": 449975000,
+                    "start_mod": "nfm"
+                }
+            }
+        }
+    }
+}
