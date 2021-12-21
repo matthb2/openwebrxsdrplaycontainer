@@ -13,3 +13,7 @@ podman build -t sdrp ./
 podman run --net=host -v/dev:/dev -dt sdrp:latest
 ```
 
+### Use
+
+* Visit http://localhost:8073
+* For authenticated uses, the initial user/password is "admin"/"admin"
