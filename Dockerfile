@@ -53,6 +53,26 @@ COPY settings.json /var/lib/openwebrx/settings.json
 COPY openwebrx.service /etc/systemd/system/openwebrx.service
 RUN systemctl enable openwebrx.service
 
+#optional
+RUN apt-get install -y libprotobuf-dev protobuf-compiler libicu-dev libboost-dev libboost-program-options-dev wsjtx 
+RUN cd /root && git clone https://github.com/jketterl/codecserver.git && \
+cd codecserver && mkdir build && cd build && cmake ../ && make && make install
+RUN cd /root && git clone https://github.com/jketterl/digiham.git && \
+cd digiham && mkdir build && cd build && cmake ../ && make && make install
+#UGLY FIXME needed for pydigiham
+RUN mkdir -p /usr/local/include/pycsdr/ && \
+cp /root/pycsdr/src/*.hpp /usr/local/include/pycsdr/
+RUN cd /root && git clone https://github.com/jketterl/pydigiham.git && cd pydigiham && python3 setup.py install
+RUN cd /root && git clone https://github.com/drowe67/codec2.git && cd codec2 &&\
+mkdir build && cd build && cmake ../ && make && make install && \
+install -m 0755 src/freedv_rx /usr/local/bin
+RUN cd /root && git clone https://github.com/mobilinkd/m17-cxx-demod.git && \
+cd m17-cxx-demod && mkdir build && cd build && cmake ../ && make && make install
+#drm
+RUN apt-get install qt5-qmake libpulse0 libfaad2 libopus0 libpulse-dev libfaad-dev libopus-dev libfftw3-dev -y 
+RUN cd /root && wget 'https://downloads.sourceforge.net/project/drm/dream/2.1.1/dream-2.1.1-svn808.tar.gz' && \
+tar xvzf dream-* && cd dream # && bash -c 'qmake CONFIG+=console' && make && make install
+
 
 #openwebrx
 EXPOSE 8073
